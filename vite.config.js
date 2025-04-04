@@ -7,13 +7,16 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   base: './',
   plugins: [
-    react(),
+    react({
+      include: '**/*.{jsx,tsx,js,ts}',
+    }),
     tsconfigPaths(),
   ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
   },
   build: {
     outDir: "dist",
